@@ -62,7 +62,6 @@ int main() {
 }*/
 
 #include "mongoose.h"
-
 #include <string>
 
 //定义web服务端口号
@@ -74,13 +73,11 @@ static const struct mg_str s_post_method = MG_MK_STR("POST");
 
 //几个辅助函数
 //判断前缀
-
 static int has_prefix(const struct mg_str *uri, const struct mg_str *prefix) {
     return uri->len > prefix->len && memcmp(uri->p, prefix->p, prefix->len) == 0;
 }
 
 //判断相同
-
 static int is_equal(const struct mg_str *s1, const struct mg_str *s2) {
     return s1->len == s2->len && memcmp(s1->p, s2->p, s2->len) == 0;
 }
@@ -112,30 +109,18 @@ static void handle_sum_call_get(struct mg_connection *nc, struct http_message *h
 
 //post请求下的简单求和
 
-static
-void
-handle_sum_call_post(struct
-                             mg_connection *nc, struct
-                             http_message *hm) {
-
-    char
-            n1[100], n2[100];
-
-    double
-            result;
+static void handle_sum_call_post(struct mg_connection *nc, struct http_message *hm) {
+    char n1[100], n2[100];
+    double result;
 
     /* Get form variables */
-
     mg_get_http_var(&hm->body, "n1", n1, sizeof(n1));
-
     mg_get_http_var(&hm->body, "n2", n2, sizeof(n2));
 
     /* Send headers */
-
     mg_printf(nc, "%s", "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
 
     /* Compute the result and send it back as a JSON object */
-
     result = strtod(n1, NULL) + strtod(n2, NULL);
 
     mg_printf_http_chunk(nc, "{ \"result\": %lf }", result);
@@ -169,9 +154,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
     //}
 
     static const struct mg_str api_prefix = MG_MK_STR("/api/v1");
-
     struct http_message *hm = (struct http_message *) ev_data;
-
     struct mg_str key;
 
     switch (ev) {
@@ -240,8 +223,6 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
     }
 
 }
-
-//主体服务
 
 int main(void) {
 
