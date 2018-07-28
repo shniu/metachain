@@ -34,3 +34,8 @@
 .idea
 cmake-build-debug
 build
+
+*.iml
+target/
+metaj/target
+target
