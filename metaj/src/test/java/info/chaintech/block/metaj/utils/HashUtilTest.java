@@ -1,20 +1,21 @@
 package info.chaintech.block.metaj.utils;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.*;
 
 public class HashUtilTest {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final static Logger logger = LoggerFactory.getLogger(HashUtilTest.class);
 
     @Test
     public void sha256() {
         String sha = HashUtil.sha256("111111111111");
         logger.info(sha);
         assert null != sha;
-        assertTrue(sha.length() == 64);
+        assertEquals(64, sha.length());
     }
 
 }
