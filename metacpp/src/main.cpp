@@ -58,4 +58,9 @@ void client_session(socket_ptr sock) {
   1. 完成搭建一个p2p网络，实例节点间可以发送 hello message
   2. 扩展节点功能，改造 message 为 Block 结构
   3. 节点可接受交易请求，并打包到 Block 中，广播出去
+
+
+  Ref:
+    - https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese
+    - boost asio website
 */
