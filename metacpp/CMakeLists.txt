@@ -27,3 +27,5 @@ set(CMAKE_CXX_STANDARD 14)
 # ----- style 2
 add_subdirectory(src)
 add_subdirectory(libs)
+# add_subdirectory(include)
+add_subdirectory(client)
