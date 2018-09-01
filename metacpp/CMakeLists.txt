@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(metachain)
 
-SET(CMAKE_CXX_COMPILER "/usr/bin/c++")
+#SET(CMAKE_CXX_COMPILER "/usr/bin/c++")
 
 message(${PROJECT_BINARY_DIR})
 message(${PROJECT_SOURCE_DIR})
@@ -10,6 +10,14 @@ message(${CMAKE_CXX_COMPILER_VERSION})
 
 SET(CMAKE_VERBOSE_MAKEFILE 1)
 set(CMAKE_CXX_STANDARD 14)
+
+
+find_package(Boost 1.66.0 REQUIRED COMPONENTS system filesystem)
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+link_directories( ${Boost_LIBRARY_DIRS} )
+#target_link_libraries(untitled ${Boost_LIBRARIES})
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lboost_thread")
 
 # ----- style 1
 #set(LIB_SRC hello.cpp)
