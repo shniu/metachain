@@ -9,10 +9,10 @@ message(${CMAKE_CXX_COMPILER_ID})
 message(${CMAKE_CXX_COMPILER_VERSION})
 
 SET(CMAKE_VERBOSE_MAKEFILE 1)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
 
-find_package(Boost 1.66.0 REQUIRED COMPONENTS system filesystem)
+find_package(Boost 1.66.0 REQUIRED COMPONENTS system filesystem thread)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 link_directories( ${Boost_LIBRARY_DIRS} )
 #target_link_libraries(untitled ${Boost_LIBRARIES})
