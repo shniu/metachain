@@ -14,14 +14,14 @@ using boost::asio::ip::tcp;
 using boost::asio::io_service;
 typedef boost::shared_ptr<tcp::socket> socket_ptr;
 
-class peer {
+/*class peer {
 public:
     void connect();
     void listen();
     void open();
     void broadcast();  // message for now
     void send(); // send message
-};
+};*/
 
 void client_session(socket_ptr sock);
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 
     while (true) {
         socket_ptr sock(new tcp::socket(service));
-        acceptor.accept();
+        acceptor.accept(*sock);
         boost::thread(boost::bind(client_session, sock));
     }
 }
