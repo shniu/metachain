@@ -15,5 +15,59 @@
 
 ### Design
 
+#### p2p network
 
+p2p 网络的通信使用 tcp 协议，需要设计一个在 tcp 协议之上信息交换的协议；p2p 网络的设计主要包括以下关键点：
+
+- peer to peer communication message protocol
+
+表示网络各节点之间消息通信的协议，能满足根据业务的需要扩展不同的消息类型，满足处理不同的业务需要；根据现有项目的一些设计，将通信协议分为两部分：消息头和消息体，具体设计如下：
+
+```
+// 消息头, message_header
+// 所有的消息都以此为开始，在通信过程中先解析消息头
+struct message_header {
+    char guid[36];     // message guid
+    char type;         // message type
+    char ttl;          // message time to alive
+    char hops;         // tiems of the message was forwarded
+    size_t length;     // payload data size
+}
+
+// 消息体，使用 char *, 需要动态为 payload 分配内存
+char * payload;
+
+// 消息协议的设计
+class message {
+public:
+    message();
+    
+    // malloc payload, 为payload动态分配内存
+    virtual size_t malloc_payload();
+    
+    // get payload
+    virtual char * payload();
+    
+    // get payload length
+    virtual size_t payload_length();
+    
+    // ...
+
+private:
+    // guid
+    std::string _guid;
+    // 消息头
+    message_header  _header;
+    // 消息体
+    char * _payload
+}
+
+// 对消息的扩展
+class DemoMessage : public message {
+public:
+    DemoMessage(const char msg_type, const string &guid, const string &payload) {
+      // ...
+    }
+}
+```
 
