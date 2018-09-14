@@ -84,3 +84,22 @@ public:
 
 网络中的每个节点在启动的时候，都可以自动连接到网络中的其他节点上, 每个节点之间保持连接，如果连接断开，最好能重新连接。
 
+```
+// Main features
+1. 网络中注册登记
+2. 节点发现
+3. 节点之间互发消息
+4. 使用GUID标识资源
+5. DHT 
+6. nodes: routing overlay, routes requests
+```
+
+### Ref
+
+#### P2P 设计参考
+
+- [Peer to peer](https://en.wikipedia.org/wiki/Peer-to-peer)
+- [Learning network programming with java](http://trackmakers.com/trackmakers.com/LIBRARY/MEDIADUMP/EBOOKS/Learning%20Network%20Programming%20with%20Java.pdf)
+- [p2p 的java实现](https://github.com/metanet/p2p)
+
+A simple unstructured P2P network implementation
