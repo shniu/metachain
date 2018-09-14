@@ -103,3 +103,9 @@ public:
 - [p2p 的java实现](https://github.com/metanet/p2p)
 
 A simple unstructured P2P network implementation
+
+- [P2P(Peer To Peer) File Sharing](https://www.geeksforgeeks.org/p2ppeer-to-peer-file-sharing/)
+- [How BitTorrent Works?](https://www.geeksforgeeks.org/how-bittorrent-works/)
+- [Peergos](https://github.com/Peergos/Peergos)
+
+A decentralised, secure file storage and social network https://peergos.org
