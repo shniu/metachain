@@ -125,3 +125,7 @@ RLPx is a cryptographic peer-to-peer network and protocol suite which provides a
 - [bitcoin 的实现库](https://github.com/libbitcoin)
 
 包含了比特币的实现，并做了模块化，network 部分使用了 boost.asio
+
+- [ethereumj](https://github.com/ethereum/ethereumj)
+
+ethereum 的 java 实现
