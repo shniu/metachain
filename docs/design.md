@@ -129,3 +129,5 @@ RLPx is a cryptographic peer-to-peer network and protocol suite which provides a
 - [ethereumj](https://github.com/ethereum/ethereumj)
 
 ethereum 的 java 实现
+
+- [libcoin network setting](https://github.com/libbitcoin/libbitcoin-server/wiki/Network-Settings)
