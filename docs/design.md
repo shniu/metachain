@@ -21,6 +21,9 @@ p2p 网络的通信使用 tcp 协议，需要设计一个在 tcp 协议之上信
 
 - peer to peer communication message protocol
 
+
+// todo 这个设计还有待改善，https://blog.csdn.net/heluan123132/article/details/46545627
+
 表示网络各节点之间消息通信的协议，能满足根据业务的需要扩展不同的消息类型，满足处理不同的业务需要；根据现有项目的一些设计，将通信协议分为两部分：消息头和消息体，具体设计如下：
 
 ```cpp
