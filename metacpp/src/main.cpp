@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <functional>
 #include <boost/asio.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/shared_ptr.hpp>
@@ -292,6 +293,47 @@ void asio_async_server() {
     }
 }
 
+// std function
+int test_std_function(int a) {
+    return a;
+}
+auto test_func_lambda = [](int a) -> int { return a; };
+class test_func_cls {
+public:
+    int operator()(int a) {
+        return a;
+    }
+};
+class test_cls_2 {
+public:
+    int test(int a){
+        return a;
+    };
+    static int static_test(int a) {
+        return a;
+    }
+};
+void std_function() {
+    std::function<int(int)> std_func;
+    std_func = test_func_lambda;
+    auto a = std_func(2);
+    std::cout << a << std::endl;
+
+    test_func_cls tfcls;
+    std_func = tfcls;
+    a = std_func(5);
+    std::cout << a << std::endl;
+
+    test_cls_2 tc2;
+    std_func = std::bind(&test_cls_2::test, tc2, std::placeholders::_1);
+    a = std_func(10);
+    std::cout << a << std::endl;
+
+    std_func = test_cls_2::static_test;
+    a = std_func(100);
+    std::cout << a << std::endl;
+}
+
 // main
 int main(int argc, char** argv) {
     // asio_usage1();
@@ -301,15 +343,11 @@ int main(int argc, char** argv) {
     // asio_class_member();
     // asio_multithread();
     // asio_sync_daytime_server();
-    asio_async_server();
+    // asio_async_server();
+    std_function();
 }
 
 /*
-
-  1. 完成搭建一个p2p网络，实例节点间可以发送 hello message
-  2. 扩展节点功能，改造 message 为 Block 结构
-  3. 节点可接受交易请求，并打包到 Block 中，广播出去
-
 
   Ref:
     - https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese
