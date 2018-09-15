@@ -109,3 +109,19 @@ A simple unstructured P2P network implementation
 - [Peergos](https://github.com/Peergos/Peergos)
 
 A decentralised, secure file storage and social network https://peergos.org
+
+- [Ethereum Wire Protocol](https://github.com/ethereum/wiki/wiki/Ethereum-Wire-Protocol)
+
+Peer-to-peer communications between nodes running Ethereum clients run using the underlying wire protocol.
+
+- [RLPx: Cryptographic Network & Transport Protocol](https://github.com/ethereum/devp2p/blob/master/rlpx.md)
+
+RLPx is a cryptographic peer-to-peer network and protocol suite which provides a general-purpose transport and interface for applications to communicate via a p2p network. RLPx is designed to meet the requirements of decentralized applications and is used by Ethereum.
+
+- [ethereum aleth](https://github.com/ethereum/aleth)
+
+以太坊的 C++ 实现, p2p 部分使用了 
+
+- [bitcoin 的实现库](https://github.com/libbitcoin)
+
+包含了比特币的实现，并做了模块化，network 部分使用了 boost.asio
