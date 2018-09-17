@@ -1,19 +1,39 @@
 //
-// Created by shniu on 18-7-12.
+// Created by shniu on 18-9-17.
 //
 
-#ifndef METACHAIN_HELLO_H
-#define METACHAIN_HELLO_H
-#if defined _WIN32
-#if LIBHELLO_BUILD
-#define LIBHELLO_API __declspec(dllexport)
-#else
-#define LIBHELLO_API __declspec(dllimport)
-#endif
-#else
-#define LIBHELLO_API
-#endif
+#ifndef METACHAIN_MESSAGE_H
+#define METACHAIN_MESSAGE_H
 
-LIBHELLO_API void hello(const char *name);
+#include <iostream>
 
-#endif //METACHAIN_HELLO_H
+namespace metachain {
+namespace network {
+
+    using namespace std;
+
+    struct message_header {
+
+    };
+
+    class message {
+    public:
+        message();
+
+        /// free resource
+        virtual ~message() {
+            free(m_payload);
+        };
+
+    private:
+        message_header m_header;
+        string m_guid;
+
+        /// message payload data
+        char * m_payload;
+    };
+
+}  // network
+}  // metachain
+
+#endif //METACHAIN_MESSAGE_H
