@@ -134,3 +134,7 @@ RLPx is a cryptographic peer-to-peer network and protocol suite which provides a
 ethereum 的 java 实现
 
 - [libcoin network setting](https://github.com/libbitcoin/libbitcoin-server/wiki/Network-Settings)
+
+- [ZMTP](https://rfc.zeromq.org/spec:15/ZMTP/)
+
+ZeroMQ 中关于 TCP 之上数据读取和发送的协议设计。
