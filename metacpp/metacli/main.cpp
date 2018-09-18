@@ -23,7 +23,7 @@ void asio_usage() {
     service.run();
 }
 
-// sync asio client to get daytime from the server
+// sync asio metacli to get daytime from the server
 void asio_sync_cli(int argc, char** argv) {
 
     try {
