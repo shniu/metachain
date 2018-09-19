@@ -12,12 +12,13 @@
 
 namespace metachain {
 
-    /// thread pool
+    /// asio io_service thread pool
+    /// https://senlinzhan.github.io/2017/09/17/boost-asio/
     class threadpool
             : noncopyable {
     public:
 
-        threadpool(size_t number_threads);
+        threadpool(size_t number_threads=0);
         ~threadpool();
 
         /// empty or not
@@ -51,7 +52,7 @@ namespace metachain {
         std::vector<asio::thread> m_threads;
         boost::upgrade_mutex m_threads_mutex;
 
-        /// work and strand
+        /// work, lock free use strand if wanted
         std::shared_ptr<asio::io_service::work> m_work_ptr;
         boost::upgrade_mutex m_work_mutex;
     };

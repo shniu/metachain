@@ -42,5 +42,8 @@ add_subdirectory(libcore)
 add_subdirectory(libp2p)
 add_subdirectory(utility)
 
+# unit tests
+add_subdirectory(tests)
+
 add_subdirectory(metacli)
 add_subdirectory(metad)

@@ -29,6 +29,9 @@ namespace network {
         /// close
         void close();
 
+        /// connect
+        void connect();
+
     private:
         /// sessions
         /// hosts

@@ -17,7 +17,7 @@ namespace metachain {
     }
 
     bool threadpool::empty() const {
-        return size() != 0;
+        return size() == 0;
     }
 
     size_t threadpool::size() const {
